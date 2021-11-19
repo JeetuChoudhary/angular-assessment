@@ -1,0 +1,84 @@
+<div class="page-wrap">
+    <div class="head py-2" *ngIf="!message">
+        <h1 class="page-title">Sign up for email updates</h1>
+        <p>*Indicates Required Fields</p>
+    </div>
+    <form [formGroup]="signupForm" (ngSubmit)="onSignup()" class="form-wrap" *ngIf="!message">
+        <div class="col-50 mb-1 py-2 pt-2 relative">
+            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                <div *ngIf="f.firstName.errors.required">First Name is required</div>
+            </div>
+            <label class="d-block">First Name</label>
+            <input type="text" class="input w-100" formControlName="firstName"
+                [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+        </div>
+        <div class="col-50 mb-1 py-2 pt-2 relative">
+            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+            </div>
+            <label class="d-block">Last Name</label>
+            <input type="text" class="input w-100" formControlName="lastName"
+                [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+        </div>
+        <div class="col-50 mb-1 py-2 pt-2 relative">
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email is required</div>
+                <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+            </div>
+            <label class="d-block">Email Address</label>
+            <input type="text" class="input w-100" formControlName="email"
+                [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+        </div>
+        <div class="col-50 mb-1 py-2 pt-2 relative">
+            <label class="d-block">Organization</label>
+            <input type="text" class="input w-100" formControlName="org" />
+        </div>
+
+        <div class="col-100 mb-1 py-2 pt-2 relative">
+            <div *ngIf="submitted && f.euResident.errors" class="invalid-feedback">
+                <div *ngIf="f.euResident.errors.required">euResident is required</div>
+            </div>
+            <label class="d-block">Eu Resident</label>
+            <select formControlName="euResident" class="input"
+                [ngClass]="{ 'is-invalid': submitted && f.euResident.errors }">
+                <option value="" selected>
+                    - SELECT ONE -
+                </option>
+                <option value="yes">
+                    Yes
+                </option>
+                <option value="no">
+                    No
+                </option>
+            </select>
+        </div>
+
+        <div class="col-50 mb-1 py-2 pt-2">
+            <input type="checkbox" class="check" formControlName="advances" />
+            <label>Advances</label>
+        </div>
+
+        <div class="col-50 mb-1 py-2 pt-2 relative">
+            <div *ngIf="submitted && f.alerts.errors" class="invalid-feedback">
+                <div *ngIf="f.alerts.errors.required">Alerts is required</div>
+            </div>
+            <input type="checkbox" class="check" formControlName="alerts"
+                [ngClass]="{ 'is-invalid': submitted && f.alerts.errors }" />
+            <label>Alerts</label>
+        </div>
+
+        <div class="col-50 mb-1 py-2 pt-2">
+            <input type="checkbox" class="check" formControlName="other" />
+            <label>Other Communications</label>
+        </div>
+
+        <div class="col-100 py-2 pt-2 mt-2">
+            <button type="submit" class="submit btn">Submit</button>
+            <button type="button" (click)="reset()" class="btn">Reset</button>
+        </div>
+    </form>
+
+    <div *ngIf="message" class="py-2">
+        <p>{{message}}</p>
+    </div>
+</div>

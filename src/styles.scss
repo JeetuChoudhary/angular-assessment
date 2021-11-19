@@ -1,0 +1,48 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+body {
+    font-family: 'Open Sans';
+    margin: 0;
+    padding: 0;
+}
+
+.d-block {
+    display: block;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.pt-2 {
+    padding-top: 2rem;
+}
+
+.py-2 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.col-100 {
+    width: 100%;
+}
+
+.col-50 {
+    width: 50%;
+}
+
+.relative {
+    position: relative;
+}
